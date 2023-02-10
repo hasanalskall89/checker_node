@@ -48,7 +48,7 @@ app.get("/api/client/:address", async (req, res) =>{
         if(getInfo.rowCount > 0){
             res.json(getInfo.rows)
         }else{
-            res.json("You are not on any List!.")
+            res.json("You are not on any List!")
         }
             
     } catch (err) {
