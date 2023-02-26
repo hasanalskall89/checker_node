@@ -43,7 +43,7 @@ app.get("/api/all", async (req, res) => {
 app.get("/api/client/:address", async (req, res) =>{
     try {
         const address = req.params.address;
-        let s = `SELECT * FROM whitelist WHERE address = '${address}';`
+        let s = `SELECT * FROM whitelist WHERE upper(address) = upper('${address}');`
         const getInfo = await pool.query(s)
         if(getInfo.rowCount > 0){
             res.json(getInfo.rows)
